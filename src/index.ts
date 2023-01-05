@@ -1,11 +1,14 @@
 #! /usr/bin/env node
-
-const { Command } = require("commander");
-const fs = require("fs");
-const path = require("path");
-const figlet = require("figlet");
+import {Command} from "commander";
+import fs from "fs";
+import path from "path";
+import figlet from "figlet";
+import { fileURLToPath } from 'url';
 
 const program = new Command();
+// In an ES module, you cannot use __dirname. 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 console.log(figlet.textSync("Dir Manager"));
 
